@@ -1,0 +1,224 @@
+<!doctype html>
+<!--Milberta Kerns Inc-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>MILBERTA KERNS INC.</title>
+<meta name="description" content="Milberta Kerns Inc. — a private holding company based in Temiskaming Shores, Ontario.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --base:#11150F;        /* deep pine-black ground */
+    --ink:#E7E9DF;         /* headings / wordmark */
+    --ink-soft:#C2C8BA;    /* body text */
+    --muted:#8A9384;       /* labels, secondary */
+    --hair:rgba(226,229,217,.14); /* hairline rules */
+    --pine:#86AC90;        /* single accent (links) */
+    --contour:rgba(228,231,221,.07); /* topographic lines */
+    --serif:"Spectral",Georgia,serif;
+    --sans:"IBM Plex Sans",system-ui,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,monospace;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+
+  html{-webkit-text-size-adjust:100%}
+
+  body{
+    min-height:100vh;
+    background:
+      radial-gradient(ellipse 120% 80% at 50% 32%, #1B2218 0%, #141A12 46%, #0E120C 100%);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+
+  /* ── topographic backdrop ────────────────── */
+  .contours{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    z-index:0;
+    pointer-events:none;
+    opacity:0;
+    animation:contourIn 1.8s ease .2s forwards;
+  }
+  @keyframes contourIn{to{opacity:1}}
+
+  .wrap{
+    position:relative;
+    z-index:1;
+    max-width:880px;
+    margin:0 auto;
+    padding:clamp(1.5rem,5vw,3rem);
+  }
+
+  /* ── top bar ─────────────────────────────── */
+  .topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:1rem;
+    padding-bottom:clamp(4rem,14vh,9rem);
+  }
+  .wordmark{
+    font-family:var(--serif);
+    font-size:clamp(1.4rem,2.4vw,1.8rem);
+    font-weight:500;
+    letter-spacing:.01em;
+  }
+  .est{
+    font-family:var(--mono);
+    font-size:.72rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--muted);
+    white-space:nowrap;
+  }
+
+  /* ── hero / thesis ───────────────────────── */
+  .thesis{
+    font-family:var(--serif);
+    font-weight:400;
+    font-size:clamp(2.1rem,6.2vw,4.1rem);
+    line-height:1.07;
+    letter-spacing:-.015em;
+    max-width:18ch;
+    padding-bottom:clamp(3.5rem,10vh,6rem);
+  }
+
+  /* ── label | content rows ────────────────── */
+  .row{
+    display:grid;
+    grid-template-columns:9rem 1fr;
+    gap:1.5rem;
+    padding:2.4rem 0;
+    border-top:1px solid var(--hair);
+  }
+  .label{
+    font-family:var(--mono);
+    font-size:.72rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--muted);
+    padding-top:.35rem;
+  }
+  .body{
+    max-width:54ch;
+    color:var(--ink-soft);
+    font-size:1.06rem;
+  }
+
+  /* ── contact ─────────────────────────────── */
+  a{
+    color:var(--pine);
+    text-decoration:none;
+    border-bottom:1px solid var(--hair);
+    transition:border-color .18s ease;
+  }
+  a:hover,a:focus-visible{border-color:var(--pine)}
+  a:focus-visible{outline:2px solid var(--pine);outline-offset:3px;border-radius:1px}
+  .contact-line{display:block;margin-bottom:.35rem}
+  .place{color:var(--muted);font-size:.97rem}
+
+  /* ── footer ──────────────────────────────── */
+  footer{
+    margin-top:clamp(4rem,12vh,7rem);
+    padding-top:1.6rem;
+    border-top:1px solid var(--hair);
+    font-family:var(--mono);
+    font-size:.72rem;
+    letter-spacing:.06em;
+    color:var(--muted);
+  }
+
+  /* ── responsive ──────────────────────────── */
+  @media (max-width:620px){
+    .row{grid-template-columns:1fr;gap:.9rem;padding:2rem 0}
+    .label{padding-top:0}
+  }
+
+  /* ── entrance ────────────────────────────── */
+  .rise{opacity:0;transform:translateY(14px);animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards}
+  .topbar{animation-delay:.05s}
+  .thesis{animation-delay:.18s}
+  @keyframes rise{to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){
+    .rise,.contours{animation:none;opacity:1;transform:none}
+  }
+</style>
+</head>
+
+<body>
+
+  <!-- topographic contour backdrop — concentric survey lines, very low opacity -->
+  <svg class="contours" viewBox="0 0 1000 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <path id="ring" d="M0,-58 C34,-66 66,-34 64,2 C70,40 36,66 2,62 C-40,70 -70,36 -66,-2 C-70,-42 -36,-64 0,-58 Z"/>
+    </defs>
+    <g fill="none" stroke="var(--contour)" stroke-width="1" vector-effect="non-scaling-stroke">
+      <g transform="translate(665,250)">
+        <use href="#ring" transform="scale(1)"/>
+        <use href="#ring" transform="scale(1.6) rotate(5)"/>
+        <use href="#ring" transform="scale(2.3) rotate(-4)"/>
+        <use href="#ring" transform="scale(3.1) rotate(7)"/>
+        <use href="#ring" transform="scale(4.0) rotate(-6)"/>
+        <use href="#ring" transform="scale(5.0) rotate(3)"/>
+        <use href="#ring" transform="scale(6.1) rotate(-5)"/>
+        <use href="#ring" transform="scale(7.3) rotate(4)"/>
+        <use href="#ring" transform="scale(8.6) rotate(-3)"/>
+      </g>
+      <g transform="translate(235,545)">
+        <use href="#ring" transform="scale(1)"/>
+        <use href="#ring" transform="scale(1.7) rotate(-6)"/>
+        <use href="#ring" transform="scale(2.6) rotate(5)"/>
+        <use href="#ring" transform="scale(3.7) rotate(-4)"/>
+        <use href="#ring" transform="scale(5.0) rotate(6)"/>
+        <use href="#ring" transform="scale(6.5) rotate(-5)"/>
+      </g>
+    </g>
+  </svg>
+
+  <main class="wrap">
+
+    <div class="topbar rise">
+      <span class="wordmark">MILBERTA KERNS INC.</span>
+      <span class="est">Est. 2020</span>
+    </div>
+
+    <!-- The single statement of purpose. Keep it to one sentence. -->
+    <h1 class="thesis rise">Investing for the long term.</h1>
+
+    <section class="row">
+      <div class="label">About us</div>
+      <div class="body">
+        <!-- 2–3 sentences. What you do and how you hold. -->
+        We put capital to work in high-quality assets and inspired value creation opportunities.
+        We are patient investors who take the long view — providing capital, continuity, and
+        counsel that is aligned with ourdeep domain expertise in technology and agriculture.
+      </div>
+    </section>
+
+    <section class="row">
+      <div class="label">Contact</div>
+      <div class="body">
+        <a class="contact-line" href="mailto:contact@milbertakerns.com">contact@milbertakerns.com</a>
+        <span class="place">Temiskaming Shores, Ontario</span>
+      </div>
+    </section>
+
+    <footer>© 2020 MILBERTA KERNS INC. All rights reserved.</footer>
+
+  </main>
+</body>
+</html>
